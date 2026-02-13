@@ -8,33 +8,33 @@ class Event(commands.Cog):
 
     @Cog.listener()
     async def on_ready(self):
-        activ = discord.Activity(type=discord.ActivityType.streaming, name='нифига, я жив?!!! (в разработке)', url='https://www.youtube.com/watch?v=4XMb_NeVUMA')
+        activ = discord.Activity(type=discord.ActivityType.streaming, name='', url='https://www.youtube.com/watch?v=dQw4w9WgXcQ')
         await self.bot.change_presence(activity=activ, status=discord.Status.online)
-        print('Я готов впахивать как (додумайте сами).')
+        print('Бот запущен')
 
     @Cog.listener()
     async def on_connect(self):
-        print('Братан, я подключился к серверу.')
+        print('Бот подключён к серверу')
 
     @Cog.listener()
     async def on_disconnect(self):
-        print('Меня отключили, батька помохи.')
+        print('Бот отключён от сервера')
 
     @Cog.listener()
     async def on_guild_remove(self, guild):
-        print('Меня выгнали из {}. Помохи'.format(guild))
+        print('Бота выгнали из {}.'.format(guild))
 
     @Cog.listener()
     async def on_guild_join(self, guild):
-        print('Хто въехал в наш сервер?')    
+        print('Новый пользователь присоединился')    
 
     @Cog.listener()
     async def on_member_ban(self, guild, user):
-        print(f'{user.display_name} запретили въезд на сервер')
+        print(f'{user.display_name} забанен на сервере')
 
     @Cog.listener()
     async def on_member_unban(self, guild, user):
-        print(f'{user.username} разрешён въезд на сервер. Стоп, НЕПОНЯЛ, ВСМЫСЛЕ, КТО РАЗРЕШИЛ?!?!?!')
+        print(f'{user.username} разбанен на сервере')
 
 async def setup(bot):
     await bot.add_cog(Event(bot))
